@@ -8,6 +8,11 @@ spring:
     port: 5672
     username: ${rabbitmq.username}
     password: ${rabbitmq.password}
+  datasource:
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driver-class-name: ${datasource.driver-class-name}
 
 server:
   port: 7070

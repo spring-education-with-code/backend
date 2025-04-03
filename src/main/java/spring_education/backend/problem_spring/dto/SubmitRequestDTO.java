@@ -1,4 +1,4 @@
-package spring_education.backend.spring_problem.dto;
+package spring_education.backend.problem_spring.dto;
 
 import lombok.Getter;
 import lombok.Setter;

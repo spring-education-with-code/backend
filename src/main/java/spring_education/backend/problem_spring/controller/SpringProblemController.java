@@ -1,4 +1,4 @@
-package spring_education.backend.spring_problem.controller;
+package spring_education.backend.problem_spring.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import spring_education.backend.spring_problem.dto.SubmitRabbitMQDTO;
-import spring_education.backend.spring_problem.dto.SubmitRequestDTO;
-import spring_education.backend.spring_problem.service.SpringProblemService;
+import spring_education.backend.problem_spring.dto.SubmitRabbitMQDTO;
+import spring_education.backend.problem_spring.dto.SubmitRequestDTO;
+import spring_education.backend.problem_spring.service.SpringProblemService;
 
 @RestController
 @RequiredArgsConstructor
