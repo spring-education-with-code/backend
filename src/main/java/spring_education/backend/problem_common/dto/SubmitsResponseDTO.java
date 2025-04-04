@@ -11,5 +11,5 @@ import java.util.List;
 @Getter
 public class SubmitsResponseDTO {
     Integer totalCount;
-    List<SubmitResponseDTO> problemSubmitDTOList;
+    List<SubmitResponseDTO> submits;
 }

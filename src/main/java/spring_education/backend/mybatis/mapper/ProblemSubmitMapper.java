@@ -7,7 +7,7 @@ import spring_education.backend.mybatis.model.ProblemSubmit;
 import java.util.List;
 
 public interface ProblemSubmitMapper {
-    @Select("SELECT * FROM problem_submit WHERE user_id = #{userId} AND problem_id = #{problemId} ORDER BY problem_submit_id")
+    @Select("SELECT * FROM problem_submit WHERE user_id = #{userId} AND problem_id = #{problemId} ORDER BY problem_submit_id DESC")
     List<ProblemSubmit> getProblemSubmit(@Param("userId") Long userId, @Param("problemId") Long problemId);
 }
 

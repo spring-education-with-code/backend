@@ -43,7 +43,7 @@ public class CommonProblemService {
 
         SubmitsResponseDTO problemSubmitsDTO = SubmitsResponseDTO.builder()
                 .totalCount(problemSubmitDTOList.size())
-                .problemSubmitDTOList(problemSubmitDTOList)
+                .submits(problemSubmitDTOList)
                 .build();
 
         return problemSubmitsDTO;

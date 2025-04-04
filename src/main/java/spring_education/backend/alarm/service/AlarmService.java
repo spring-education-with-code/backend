@@ -55,10 +55,9 @@ public class AlarmService {
     }
 
 
-    public void judgeProgressAlarm(){
+    public void judgeProgressAlarm(String msg){
         SseEmitter emitter = emitters.get("donghyeon");
 
-        String msg = "나는 메세지 에요";
         try{
             emitter.send(SseEmitter.event()
                     .name("message")
