@@ -1,4 +1,4 @@
-package spring_education.backend.alarm.service;
+package spring_education.backend.db_security_utility.alarm.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

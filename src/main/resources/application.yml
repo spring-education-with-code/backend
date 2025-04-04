@@ -13,6 +13,9 @@ spring:
     username: ${datasource.username}
     password: ${datasource.password}
     driver-class-name: ${datasource.driver-class-name}
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
 
 server:
   port: 7070

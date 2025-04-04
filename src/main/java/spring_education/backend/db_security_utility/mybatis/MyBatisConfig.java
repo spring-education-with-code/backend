@@ -1,4 +1,4 @@
-package spring_education.backend.mybatis;
+package spring_education.backend.db_security_utility.mybatis;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;

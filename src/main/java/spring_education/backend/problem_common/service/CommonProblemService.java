@@ -1,9 +1,9 @@
 package spring_education.backend.problem_common.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import spring_education.backend.mybatis.mapper.ProblemSubmitMapper;
-import spring_education.backend.mybatis.model.ProblemSubmit;
+import spring_education.backend.db_security_utility.mybatis.mapper.ProblemSubmitMapper;
+import spring_education.backend.db_security_utility.mybatis.model.ProblemSubmit;
 import spring_education.backend.problem_common.dto.SubmitResponseDTO;
 import spring_education.backend.problem_common.dto.SubmitsResponseDTO;
 
@@ -14,10 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CommonProblemService {
 
-    @Autowired
-    ProblemSubmitMapper problemSubmitMapper;
+    private final ProblemSubmitMapper problemSubmitMapper;
 
     public SubmitsResponseDTO getSubmitProblem(Long userId, Long problemId){
         List<ProblemSubmit> problemSubmitList = problemSubmitMapper.getProblemSubmit(userId, problemId);

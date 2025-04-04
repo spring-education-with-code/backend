@@ -1,4 +1,4 @@
-package spring_education.backend.RabbitMQ;
+package spring_education.backend.db_security_utility.RabbitMQ;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -6,13 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-import spring_education.backend.RabbitMQ.dto.JudgeProgressAlarmDTO;
-import spring_education.backend.RabbitMQ.dto.JudgeProgressDTO;
-import spring_education.backend.alarm.service.AlarmService;
-
-import java.util.Queue;
+import spring_education.backend.db_security_utility.RabbitMQ.dto.JudgeProgressAlarmDTO;
+import spring_education.backend.db_security_utility.RabbitMQ.dto.JudgeProgressDTO;
+import spring_education.backend.db_security_utility.alarm.service.AlarmService;
 
 @Component
 @RequiredArgsConstructor

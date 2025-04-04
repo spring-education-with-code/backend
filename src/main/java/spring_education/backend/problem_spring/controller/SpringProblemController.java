@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import spring_education.backend.problem_spring.dto.SubmitRabbitMQDTO;
-import spring_education.backend.problem_spring.dto.SubmitRequestDTO;
+import spring_education.backend.problem_spring.dto.SpringSubmitRabbitMQDTO;
+import spring_education.backend.problem_spring.dto.SpringSubmitRequestDTO;
+import spring_education.backend.problem_spring.dto.SpringSubmitResponseDTO;
 import spring_education.backend.problem_spring.service.SpringProblemService;
 
 @RestController
@@ -21,25 +22,15 @@ public class SpringProblemController {
     private final SpringProblemService springProblemService;
 
     @PostMapping("/api/problem/spring/{problemId}")
-    public ResponseEntity<Void> submitCode(@PathVariable String problemId, @RequestBody SubmitRequestDTO submitDTO){
+    public ResponseEntity<SpringSubmitResponseDTO> submitCode(@PathVariable String problemId, @RequestBody SpringSubmitRequestDTO submitDTO){
 
         log.info("/api/problem/spring 진입");
-        //submitDTO 형태를 submitRabbitMQDTO 형태로 바꾼다 ( controller, service, user_id, problem_id)
-        SubmitRabbitMQDTO submitRabbitMQDTO = new SubmitRabbitMQDTO(submitDTO.getController(), submitDTO.getService(), "1", problemId);
-
-        //submitRabbitMQDTO 를 json 형태로 바꾼다
-        String message = "";
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            message = objectMapper.writeValueAsString(submitRabbitMQDTO);
-        } catch (JsonProcessingException e) {
-            log.error(e.getMessage());
-        }
+        submitDTO.setUser_id(1L);
+        submitDTO.setProblem_id(Long.valueOf(problemId));
 
         //message를 서비스 단에 전달
-        springProblemService.submitCode(message);
+        SpringSubmitResponseDTO springSubmitResponseDTO = springProblemService.submitCode(submitDTO);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(springSubmitResponseDTO);
     }
-
 }

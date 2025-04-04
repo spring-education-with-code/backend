@@ -1,4 +1,4 @@
-package spring_education.backend.RabbitMQ.dto;
+package spring_education.backend.db_security_utility.RabbitMQ.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

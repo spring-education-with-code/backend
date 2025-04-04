@@ -40,6 +40,7 @@ dependencies {
 	implementation("org.mybatis:mybatis-spring:3.0.3")
 	implementation("org.springframework.boot:spring-boot-starter-jdbc:3.4.4")
 	implementation("mysql:mysql-connector-java:8.0.33")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis:3.4.4")
 }
 
 tasks.named('test') {

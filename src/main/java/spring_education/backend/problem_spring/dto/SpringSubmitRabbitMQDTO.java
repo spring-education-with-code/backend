@@ -7,9 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class SubmitRabbitMQDTO {
+public class SpringSubmitRabbitMQDTO {
     String controller;
     String service;
     String user_id;
     String problem_id;
+    String submit_id;
 }

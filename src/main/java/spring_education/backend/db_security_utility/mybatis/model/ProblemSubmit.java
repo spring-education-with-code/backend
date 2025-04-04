@@ -1,4 +1,4 @@
-package spring_education.backend.mybatis.model;
+package spring_education.backend.db_security_utility.mybatis.model;
 
 import lombok.*;
 

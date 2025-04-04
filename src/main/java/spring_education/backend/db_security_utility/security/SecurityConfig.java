@@ -1,4 +1,4 @@
-package spring_education.backend.security;
+package spring_education.backend.db_security_utility.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
