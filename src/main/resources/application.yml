@@ -1,7 +1,21 @@
 spring:
   application:
     name: backend
+  config:
+    import: "classpath:./config/local-var.yml"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: ${rabbitmq.username}
+    password: ${rabbitmq.password}
+  datasource:
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driver-class-name: ${datasource.driver-class-name}
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
 
 server:
   port: 7070
-
