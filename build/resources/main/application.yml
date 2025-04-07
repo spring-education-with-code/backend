@@ -17,5 +17,10 @@ spring:
     host: ${redis.host}
     port: ${redis.port}
 
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+
 server:
   port: 7070
+

@@ -30,6 +30,8 @@ public class SpringProblemService {
 
     public SpringSubmitResponseDTO submitCode(SpringSubmitRequestDTO springSubmitRequestDTO){
 
+
+
         int isCorrect;
         int isThereSameRedisSubmit = redisUtlity.isThereSameRedisSubmit(springSubmitRequestDTO);
         if(isThereSameRedisSubmit != -1){
