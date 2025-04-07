@@ -11,5 +11,6 @@ import java.util.List;
 @Getter
 public class SubmitsResponseDTO {
     Integer totalCount;
+    Integer totalPages;
     List<SubmitResponseDTO> submits;
 }
