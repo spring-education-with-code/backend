@@ -1,6 +1,9 @@
 package spring_education.backend.problem_common.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import spring_education.backend.db_security_utility.mybatis.mapper.ProblemSubmitMapper;
 import spring_education.backend.db_security_utility.mybatis.model.ProblemSubmit;
@@ -13,14 +16,21 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CommonProblemService {
 
     private final ProblemSubmitMapper problemSubmitMapper;
 
-    public SubmitsResponseDTO getSubmitProblem(Long userId, Long problemId){
+    public SubmitsResponseDTO getSubmitProblem(Long userId, Long problemId, int pageNum){
+
+        long startTime = System.currentTimeMillis(); // 코드 시작 시간
+
+        PageHelper.startPage(pageNum, 20);
         List<ProblemSubmit> problemSubmitList = problemSubmitMapper.getProblemSubmit(userId, problemId);
+        PageInfo<ProblemSubmit> pageInfo = new PageInfo<>(problemSubmitList);
+
         List<SubmitResponseDTO> problemSubmitDTOList = new ArrayList<>();
 
         for(ProblemSubmit problemSubmit : problemSubmitList){
@@ -41,10 +51,17 @@ public class CommonProblemService {
             problemSubmitDTOList.add(problemSubmitDTO);
         }
 
+
         SubmitsResponseDTO problemSubmitsDTO = SubmitsResponseDTO.builder()
-                .totalCount(problemSubmitDTOList.size())
+                .totalCount((int) pageInfo.getTotal())
+                .totalPages((int) (pageInfo.getTotal() / 20) + 1)
                 .submits(problemSubmitDTOList)
                 .build();
+
+        long endTime = System.currentTimeMillis(); // 코드 끝난 시간
+
+        long durationTimeSec = endTime - startTime;
+        log.info(durationTimeSec + "ms 소요 - /submit/ api"); // 밀리세컨드 출력
 
         return problemSubmitsDTO;
     }
