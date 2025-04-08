@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import spring_education.backend.db_security_utility.annotation.warmup.WarmUp;
 import spring_education.backend.db_security_utility.mybatis.mapper.ProblemSubmitMapper;
 import spring_education.backend.db_security_utility.mybatis.model.ProblemSubmit;
 import spring_education.backend.problem_common.dto.SubmitResponseDTO;
@@ -23,6 +24,7 @@ public class CommonProblemService {
 
     private final ProblemSubmitMapper problemSubmitMapper;
 
+    @WarmUp(args = {"1","1","1"})
     public SubmitsResponseDTO getSubmitProblem(Long userId, Long problemId, int pageNum){
 
         long startTime = System.currentTimeMillis(); // 코드 시작 시간
