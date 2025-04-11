@@ -1,4 +1,4 @@
-package spring_education.backend.problem_common.dto;
+package spring_education.backend.problem_common.dto.submit;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
